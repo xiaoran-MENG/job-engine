@@ -37,7 +37,10 @@
       "options": {
         "targetName": "test"
       },
-      "exclude": ["apps/job-engine-auth-e2e/**/*"]
+      "exclude": [
+        "apps/job-engine-auth-e2e/**/*",
+        "apps/job-engine-jobs-e2e/**/*"
+      ]
     }
   ]
 }
