@@ -7,13 +7,13 @@
   "targets": {
     "test": {
       "executor": "@nx/jest:jest",
-      "dependsOn": ["generate-types"],
+      "dependsOn": ["generate-prisma"],
       "options": {
         "jestConfig": "{projectRoot}/jest.config.ts"
       }
     },
     "build": {
-      "dependsOn": ["generate-types"]
+      "dependsOn": ["generate-prisma", "generate-ts-proto"]
     },
     "serve": {
       "executor": "@nx/js:node",
@@ -32,17 +32,22 @@
         }
       }
     },
-    "generate-types": {
+    "generate-prisma": {
       "command": "prisma generate",
       "options": {
-        "cwd": "apps/job-engine-auth"
-      }
+        "cwd": "{projectRoot}",
+        "input": ["prisma/schema.prisma"]
+      },
+      "cache": true
     },
     "migrate-prisma": {
       "command": "prisma migrate dev",
       "options": {
-        "cwd": "apps/job-engine-auth"
+        "cwd": "{projectRoot}"
       }
+    },
+    "generate-ts-proto": {
+      "command": "nx generate-ts-proto"
     }
   }
 }
