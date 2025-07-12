@@ -12,7 +12,7 @@ export class GqlAuthGuard implements CanActivate, OnModuleInit {
     constructor(@Inject(AUTH_PACKAGE_NAME) private clientGrpc: ClientGrpc) {}
 
     onModuleInit() {
-        this.client = this.clientGrpc.getClientByServiceName(AUTH_SERVICE_NAME);
+        this.client = this.clientGrpc.getService<AuthServiceClient>(AUTH_SERVICE_NAME);
     }
 
     // Cookies are set by cookie parser middleware
