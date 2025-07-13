@@ -8,7 +8,7 @@ import { JobsModule } from './jobs.module';
   imports: [
     ConfigModule.forRoot({ isGlobal: true }), // Ensures availability to Pulsar client 
     JobsModule, 
-      GraphQLModule.forRoot<ApolloDriverConfig>({
+    GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       playground: {
         settings: {

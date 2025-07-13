@@ -1,15 +1,10 @@
 import { Producer } from "pulsar-client";
 import { PulsarClient } from '@job-engine/pulsar'; // tsconfig.base.json
-import { OnModuleDestroy } from "@nestjs/common";
 
-export abstract class AbstractJob<T> implements OnModuleDestroy {
+export abstract class AbstractJob<T> {
     private producer: Producer;
 
     constructor(private readonly pulsarClient: PulsarClient) {}
-
-    async onModuleDestroy() {
-        await this.producer.close();
-    }
 
     /**
      * Producer only needs to be created once and to be reused

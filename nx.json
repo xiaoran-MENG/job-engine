@@ -39,7 +39,8 @@
       },
       "exclude": [
         "apps/job-engine-auth-e2e/**/*",
-        "apps/job-engine-jobs-e2e/**/*"
+        "apps/job-engine-jobs-e2e/**/*",
+        "apps/job-engine-executor-e2e/**/*"
       ]
     }
   ],

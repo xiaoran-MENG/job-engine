@@ -1,9 +1,9 @@
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
-import { Job } from '../models/job.model';
 import { JobsService } from './jobs.service';
-import { ExecuteJobInput } from '../dto/execute-job.input';
 import { UseGuards } from '@nestjs/common';
 import { GqlAuthGuard } from '@job-engine/nestjs';
+import { Job } from './models/job.model';
+import { ExecuteJobInput } from './dto/execute-job.input';
 
 @Resolver()
 export class JobsResolver {
